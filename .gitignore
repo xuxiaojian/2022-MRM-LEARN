@@ -1,7 +1,10 @@
 /backup
-/data
-/results
 
+/data/*
+!/data/*.txt
+
+/results/*
+!/results/*.txt
 
 /**/*.pyc
 /**/__pycache__

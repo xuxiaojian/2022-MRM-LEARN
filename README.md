@@ -98,7 +98,7 @@ You can also train your own model using our codes. We here illustrate the proced
 - The test results will be stored in the ./results folder.
 
 ### Notes
-To simulate your own motion-corrupted data, run the files in ./data_simulation.
+**Optional**: To simulate your own motion-corrupted data, run the files in ./data_simulation.
 - data_processing_basic.py computes the normalization parameter for each data.
 - gen_corrupt_snr2d_test.py simulates 2D-motion-based motion-corrupted mGRE images with light, moderate and heavy motions.
 - gen_corrupt_snr2d_train.py simulates 2D-motion-based motion-corrupted mGRE images with random motion levels.
