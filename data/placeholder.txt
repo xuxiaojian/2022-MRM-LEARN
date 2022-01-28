@@ -1,1 +1,1 @@
-Download data and put it inside this folder.
+Download data and put them inside this folder.
