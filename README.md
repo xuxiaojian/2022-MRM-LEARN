@@ -20,7 +20,7 @@
 
 ### Models
 
-  Four pre-trained models can be downloaded from [Google drive](https://drive.google.com/drive/folders/1nMWOI5tI2dYvupwMiRBOgw-VdJIjF-48?usp=sharing). Once downloaded, place them into `./results`. The detail information of the provided models are listed below:
+  Four pre-trained models can be downloaded from [Google drive](https://drive.google.com/drive/folders/1nMWOI5tI2dYvupwMiRBOgw-VdJIjF-48?usp=sharing). Once downloaded, place them into `./results`. The detail information of the provided models is listed below:
 
   - **LEARN-BIO-finetuned_2021-11-01-12-27-38_mri_2dechoft_bnloss_relu/model/best-snr.h5**
     - This is a LEARN-BIO model trained on 2D motion (in-plane shift and rotation) data and finetuned on 3D motion (in-plane shift and 3D rotation).
@@ -37,7 +37,7 @@
  
 
 ### Data
-  Data of two exemplar subjects (017_9990 and C08_V2) can be downloaded from [Google drive](https://drive.google.com/drive/folders/1Hv2MhHcYE9fDYJivLnNEYknkl6xj0S_z?usp=sharing). Once downloaded, place them into `./data`. The detail information of the provided data are listed below:
+  Data of two exemplar subjects (017_9990 and C08_V2) can be downloaded from [Google drive](https://drive.google.com/drive/folders/1Hv2MhHcYE9fDYJivLnNEYknkl6xj0S_z?usp=sharing). Once downloaded, place them into `./data`. The detail information of the provided data is listed below:
   - **motion/017_9990**
     - This is experimental motion-corrupted data. Folder only contains mGRE data.
   - **motion/C08_V2**
