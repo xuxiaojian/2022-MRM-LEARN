@@ -1,6 +1,8 @@
 # [Learning-based Motion Artifact Removal Networks (LEARN) for Quantitative  Mapping](https://arxiv.org/pdf/2109.01622.pdf)
 
+<!---
 [![Watch the video](https://github.com/xuxiaojian/2022-MRM-LEARN/blob/main/examples/gif.gif)](https://youtu.be/2DVl2lS-dbU)
+-->
 
 ![Alt Text](https://github.com/xuxiaojian/2022-MRM-LEARN/blob/main/examples/gif.gif)
 
