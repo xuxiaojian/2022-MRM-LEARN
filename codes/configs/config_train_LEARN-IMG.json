@@ -1,0 +1,100 @@
+{
+    "setting": {
+        "gpu_index": "0, 1",
+        "root_path": "/export1/project/xiaojianxu/projects/2022-MRM-LEARN/results/",
+        "data_path": "/export1/project/xiaojianxu/projects/2022-MRM-LEARN/data/",
+        "save_folder": "LEARN-IMG",
+        "dataset": "mri_3decho",
+        "mode": "train",
+
+        "restore": false,
+        "restore_folder":"LEARN-IMG-warmup_2021-02-24-03-56-55_mri_3decho_bnloss",
+        "model_name": "best-snr.h5",
+        "global_epoch": 186,
+        "global_batch": 20050,
+        "description": ""
+    },
+
+    "dataset": {
+        "train_subj_indexes": ["C01_V2", "C02_V2", "C03_V2", "C04_V2", "C06_V2", "C07_V2", "C11_V1",
+                               "C12_V1", "C14_V1", "C15_V1", "C16_V1", "C18_V1", "C23_V1", "C26_V1"],
+        "valid_subj_indexes":  ["C10_V3","C17_V1","C22_V1"],
+        "test_subj_indexes":  ["017_9990"],
+        "sample_batches": [14],
+
+        "sampels_each_rate": {
+            "train": [0],
+            "valid": [0],
+            "test": [0]
+        },
+        "slice_rng":{
+            "60": [19, 50],
+            "72": [24, 55],
+            "88": [29, 60],
+            "96": [34, 65]
+            },
+
+        "inputType": "complex",
+        "outputType": "complex",
+        "norm": "midcube",
+        "R2s_norm":"none",
+        "rm_skull": {
+            "train": false,
+            "valid": false,
+            "test": false
+        },
+        "mask_type": {
+            "train": "Braincalmask_New_",
+            "valid": "Braincalmask_New_",
+            "test": "none"
+        },
+        
+        "offrun_settings": {
+            "train_ipt_label": "_nrand1-10_snr2d_mid",
+            "valid_ipt_label": "_nrand1-10_snr2d_mid",
+            "test_ipt_label": "",
+            "motion_rng": [1],
+            "noise_level":0,
+            "fileKeys": ["t1w", "R2s"]
+        }
+    },
+
+    "method": {
+        "model": "unet3d",
+        "unet2d": {
+            "kernel_size": 3,
+            "filters_root": 64,
+            "conv_times": 3,
+            "up_down_times": 4,
+            "output_channel": 2,
+            "if_relu": false,
+            "if_residule": false
+        },
+
+        "unet3d": {
+            "kernel_size": 3,
+            "filters_root": 64,
+            "conv_times": 3,
+            "up_down_times": 4,
+            "output_channel": 2,
+            "if_relu": false,
+            "if_residule": false
+        }
+    },
+
+    "train": {
+        "batch_size": 2,
+        "learning_rate": 1e-4,
+        "runtime_batch": 1000,
+        "train_epoch": 400,
+        "save_epoch":  10,
+        "lossType": "l2",
+        "src_path": "/export1/project/xiaojianxu/projects/2022-MRM-LEARN/codes"
+    },
+
+     "test": {
+            "batch_size": 2,
+            "weight_file": "best-snr.h5",
+            "description": ""
+            }
+}
