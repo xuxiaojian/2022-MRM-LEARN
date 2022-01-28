@@ -82,7 +82,7 @@ The configuration for running different data and models are provided in folder .
 More generally, to try different models, please change the following instructions. 
   - Open 'config_test_LEARN-X.json' file, where this file  is 'config_test_LEARN-BIO.json' for testing a LEARN_BIO model and 'config_test_LEARN-IMG.json' for a LEARN-IMG model.
   - In 'config_test_LEARN-X.json' file, set "save_folder" and the corresponding "weight_file" to the pre-trained model you want to test.
-- modify [config_file_name] to 'config_test_LEARN-X.json' in the in main.py.
+- modify [config_file_name] to 'config_test_LEARN-X.json' in main.py.
 - run the main.py file.
 
 ### Train with exemplar data
