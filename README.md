@@ -1,4 +1,4 @@
-# [Learning-based Motion Artifact Removal Networks (LEARN) for Quantitative R2* Mapping](https://arxiv.org/pdf/2109.01622.pdf)
+# [Learning-based Motion Artifact Removal Networks (LEARN) for Quantitative R2* Mapping](https://arxiv.org/abs/2109.01622)
 
 <!---
 [![Watch the video](https://github.com/xuxiaojian/2022-MRM-LEARN/blob/main/examples/gif.gif)](https://youtu.be/2DVl2lS-dbU)
