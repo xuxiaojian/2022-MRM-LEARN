@@ -106,3 +106,14 @@ To simulate your own motion-corrupted data, run the files in ./data_simulation.
 - gen_corrupt_snr2d_train.py simulates 3D-motion-based motion-corrupted mGRE images with random motion levels.
 
 
+### Citation
+```
+@misc{xu2021learningbased,
+      title={Learning-based Motion Artifact Removal Networks (LEARN) for Quantitative $R_2^\ast$ Mapping}, 
+      author={Xiaojian Xu and Satya V. V. N. Kothapalli and Jiaming Liu and Sayan Kahali and Weijie Gan and Dmitriy A. Yablonskiy and Ulugbek S. Kamilov},
+      year={2021},
+      eprint={2109.01622},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV}
+}
+```
