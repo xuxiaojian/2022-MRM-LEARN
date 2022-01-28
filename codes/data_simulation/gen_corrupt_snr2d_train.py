@@ -73,8 +73,8 @@ def gen_data_snr2d(folders=None, saveData=False, save_ksp=False, input_rootpath=
 
 
 # server3
-input_rootpath = '/export/project/xiaojianxu/projects/mri_motion_blur/data_ori/max/truth'
-output_rootpath = '/export/project/xiaojianxu/projects/mri_motion_blur/data_ori/max/motion'
+input_rootpath = '/export1/project/xiaojianxu/projects/2022-MRM-LEARN/data/truth'
+output_rootpath = '/export1/project/xiaojianxu/projects/2022-MRM-LEARN/data/motion'
 
 corrupt_type = 'snr2d_mid'
 keeptruth = False

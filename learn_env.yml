@@ -1,4 +1,4 @@
-name: weijie
+name: learn_env
 channels:
   - pytorch
   - conda-forge
@@ -201,5 +201,5 @@ dependencies:
     - webencodings==0.5.1
     - widgetsnbextension==3.5.1
     - zipp==3.6.0
-prefix: /export/project/xiaojianxu/anaconda3/envs/weijie
+prefix: /export/project/xiaojianxu/anaconda3/envs/learn_env
 
