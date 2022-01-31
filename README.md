@@ -71,7 +71,7 @@
 ### Test with pretrained models
 The configuration for running different data and models are provided in folder ./configs. The current demo tests LEARN-BIO-finetuned model on experimental data 017_9990. To run such a demo,
 - open config_test_LEARN-BIO.json file, change the "gpu_index" filed to your available GPUs;
-- open main.py file, change the project path [directory] to your local system path;
+- open main.py file, change the project path [directory] to your local project path;
 -  in your terminal, run the main.py file by typing
   ```
   $ python main.py
