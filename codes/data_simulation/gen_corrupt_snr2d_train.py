@@ -3,6 +3,11 @@ warnings.filterwarnings('ignore')
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
+import sys 
+from os.path import dirname, abspath
+dir = dirname(dirname(abspath(__file__)))
+sys.path.append(dir)
+
 from scipy.io import loadmat
 import numpy as np
 import h5py
@@ -22,7 +27,7 @@ def gen_data_snr2d(folders=None, saveData=False, save_ksp=False, input_rootpath=
         subfolder = folders[conter]
         file_path = '{}/{}/ima_comb_{}.mat'.format(input_rootpath, subfolder, subfolder)
 
-        print('loading {}'.format(file_path));
+        print('loading {}'.format(file_path))
         truth_complex_ori = loadmat(file_path, verify_compressed_data_integrity=False)['ima_comb']
         nheight, nwidth, nslice, necho = truth_complex_ori.shape
 

@@ -3,8 +3,8 @@ warnings.filterwarnings("ignore")
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import json
-import tools.util as util
 
+import tools.util as util
 from method.network import Network
 from data_loader.mri_3decho import mri_3decho
 from data_loader.mri_2dechoft import mri_2dechoft
@@ -18,10 +18,20 @@ dataset_dict = {
     'mri_2dechoft': mri_2dechoft,
 }
 
+# define the project folder
+directory = '/export1/project/xiaojianxu/projects/2022-MRM-LEARN'
+
 # read configuration
-config_file_name = 'configs/config_train_LEARN-IMG.json'
+config_file_name = directory + '/codes' + '/configs/config_test_LEARN-BIO.json'
 with open(config_file_name) as File:
     config = json.load(File)
+
+# complete the path accordingly
+config["setting"]["root_path"] = directory + '/' + config["setting"]["root_path"]
+config["setting"]["data_path"] = directory + '/' + config["setting"]["data_path"]
+config["train"]["src_path"] = directory + '/' + config["train"]["src_path"]
+
+# load GPUs usage
 os.environ["CUDA_VISIBLE_DEVICES"] = config['setting']['gpu_index']
 
 # run method for trainning/testing

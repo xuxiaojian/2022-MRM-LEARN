@@ -3,6 +3,11 @@ warnings.filterwarnings('ignore')
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
+import sys 
+from os.path import dirname, abspath
+dir = dirname(dirname(abspath(__file__)))
+sys.path.append(dir)
+
 from scipy.io import loadmat
 import numpy as np
 import h5py

@@ -1,8 +1,8 @@
 {
     "setting": {
         "gpu_index": "0",
-        "root_path": "/export1/project/xiaojianxu/projects/2022-MRM-LEARN/results/",
-        "data_path": "/export1/project/xiaojianxu/projects/2022-MRM-LEARN/data/",
+        "root_path": "results/",
+        "data_path": "data/",
         "save_folder": "LEARN-BIO-finetuned_2021-11-01-12-27-38_mri_2dechoft_bnloss_relu",
         "dataset": "mri_2dechoft",
         "mode": "test",
@@ -90,7 +90,7 @@
         "train_epoch": 200,
         "save_epoch":  10,
         "lossType": "l2",
-        "src_path": "/export1/project/xiaojianxu/projects/mri_motion_blur/codes/"
+        "src_path": "codes"
     },
 
      "test": {

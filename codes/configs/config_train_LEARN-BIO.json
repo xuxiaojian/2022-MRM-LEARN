@@ -1,8 +1,8 @@
 {
     "setting": {
         "gpu_index": "0, 1",
-        "root_path": "/export1/project/xiaojianxu/projects/2022-MRM-LEARN/results/",
-        "data_path": "/export1/project/xiaojianxu/projects/2022-MRM-LEARN/data/",
+        "root_path": "results/",
+        "data_path": "data/",
         "save_folder": "LEARN-BIO",
         "dataset": "mri_2dechoft",
         "mode": "train",
@@ -91,7 +91,7 @@
         "train_epoch": 450,
         "save_epoch":  10,
         "lossType": "l2",
-        "src_path": "/export1/project/xiaojianxu/projects/2022-MRM-LEARN/codes"
+        "src_path": "codes"
     },
 
     "test": {
