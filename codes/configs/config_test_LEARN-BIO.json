@@ -3,7 +3,7 @@
         "gpu_index": "0",
         "root_path": "results/",
         "data_path": "data/",
-        "save_folder": "LEARN-BIO-finetuned_2021-11-01-12-27-38_mri_2dechoft_bnloss_relu",
+        "save_folder": "LEARN-BIO-warmup_2021-02-20-00-22-11_mri_2dechoft_bnloss_relu",
         "dataset": "mri_2dechoft",
         "mode": "test",
 
@@ -95,7 +95,7 @@
 
      "test": {
             "batch_size": 2,
-            "weight_file": "best-snr.h5",
+            "weight_file": "latest.h5",
             "description": ""
             }
 }

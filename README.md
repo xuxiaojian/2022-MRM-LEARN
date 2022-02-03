@@ -69,7 +69,7 @@
     ```
 
 ### Test with pretrained models
-The configuration for running different data and models are provided in folder ./configs. The current demo tests LEARN-BIO-finetuned model on experimental data 017_9990. To run such a demo,
+The configuration for running different data and models are provided in folder ./configs. The current demo tests LEARN-BIO-warmup model on experimental data 017_9990  (note X-warmup and X-finetuned mdole share very similar results while X-warmupm model is more robust and therefore suggested). To run such a demo,
 - open config_test_LEARN-BIO.json file, change the "gpu_index" filed to your available GPUs;
 - open main.py file, change the project path [directory] to your local project path;
 -  in your terminal, run the main.py file by typing
@@ -86,7 +86,7 @@ More generally, to try different models, please change the following instruction
 
 ### Train with exemplar data
 You can also train your own model using our codes. We here illustrate the procedure with our simulated motion-corrupted data C08_V2.
-  - Open 'config_train_LEARN-X.json' file, where this file is 'config_train_LEARN-BIO.json' for training a LEARN_BIO model and 'config_train_LEARN-IMG.json' for a LEARN-IMG model.
+  - Open 'config_train_LEARN-X.json' file, where this file is 'config_train_LEARN-BIO.json' for training a LEARN_BIO model and 'config_train_LEARN-IMG.json' for a LEARN-IMG model. 
   - Change the data to your data, e.g., 
       - "train_subj_indexes": ["C08_V2"],
       - "valid_subj_indexes": ["C08_V2"],
