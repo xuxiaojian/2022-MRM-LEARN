@@ -37,17 +37,17 @@
  
 
 ### Data
-  Data of two exemplar subjects (017_9990 and C08_V2) can be downloaded from [Google drive](https://drive.google.com/drive/folders/1Hv2MhHcYE9fDYJivLnNEYknkl6xj0S_z?usp=sharing). Once downloaded, place them into `./data`. The detail information of the provided data is listed below:
-  - **motion/017_9990**
+  Data of two exemplar subjects (subj_exp and subj_sim) can be downloaded from [Google drive](https://drive.google.com/drive/folders/1Hv2MhHcYE9fDYJivLnNEYknkl6xj0S_z?usp=sharing). Once downloaded, place them into `./data`. The detail information of the provided data is listed below:
+  - **motion/subj_exp**
     - This is experimental motion-corrupted data. Folder only contains mGRE data.
-  - **motion/C08_V2**
+  - **motion/subj_sim**
     - This is simulated motion-corrupted data. Folder only contains mGRE data. The name indicates how each data is simulated. For example, 
       - [snr2d_mid] represents the motion was simulated with 2D motion wihle [snr3d_midnew] represent by 3D motion. 
       - [n3], [n6], and [n9] represents light, moderate and heavy motion, respectively.
   
-  - **truth/017_9990**
-    - This is experimental motion-corrupted data. Folder contains mGRE data, F(t) function, mask and S0 and R2* (see table below for more details). Note that the mGRE data in this folder is identity to the one in **motion/017_9990**. 
-  - **truth/C08_V2**
+  - **truth/subj_exp**
+    - This is experimental motion-corrupted data. Folder contains mGRE data, F(t) function, mask and S0 and R2* (see table below for more details). Note that the mGRE data in this folder is identity to the one in **motion/subj_exp**. 
+  - **truth/subj_sim**
     -  This is motion-free data. Folder contains mGRE data, F(t) function, mask and S0 and R2* (see table below for more details).
 
   |Files|Explaination|
@@ -69,7 +69,7 @@
     ```
 
 ### Test with pretrained models
-The configuration for running different data and models are provided in folder ./configs. The current demo tests LEARN-BIO-warmup model on experimental data 017_9990  (note X-warmup and X-finetuned mdole share very similar results while X-warmupm model is more robust and therefore suggested). To run such a demo,
+The configuration for running different data and models are provided in folder ./configs. The current demo tests LEARN-BIO-warmup model on experimental data subj_exp  (note X-warmup and X-finetuned mdole share very similar results while X-warmupm model is more robust and therefore suggested). To run such a demo,
 - open config_test_LEARN-BIO.json file, change the "gpu_index" filed to your available GPUs;
 - open main.py file, change the project path [directory] to your local project path;
 -  in your terminal, run the main.py file by typing
@@ -85,11 +85,11 @@ More generally, to try different models, please change the following instruction
 - run the main.py file.
 
 ### Train with exemplar data
-You can also train your own model using our codes. We here illustrate the procedure with our simulated motion-corrupted data C08_V2.
+You can also train your own model using our codes. We here illustrate the procedure with our simulated motion-corrupted data subj_sim.
   - Open 'config_train_LEARN-X.json' file, where this file is 'config_train_LEARN-BIO.json' for training a LEARN_BIO model and 'config_train_LEARN-IMG.json' for a LEARN-IMG model. 
   - Change the data to your data, e.g., 
-      - "train_subj_indexes": ["C08_V2"],
-      - "valid_subj_indexes": ["C08_V2"],
+      - "train_subj_indexes": ["subj_sim"],
+      - "valid_subj_indexes": ["subj_sim"],
  - To train your model on 2D motion data, set "train_ipt_label": "_nrand1-10_snr2d_mid". 
  - [Optional] To finetune your model on 3D motion data, set "train_ipt_label": "_nrand1-10_snr3d_midnew", "restore": true and "restore_folder" to its initial models, e.g., "restore_folder":"LEARN-BIO-warmup_2021-02-20-00-22-11_mri_2dechoft_bnloss_relu".
  -  In the in main.py fille, modify [config_file_name] to 'config_train_LEARN-X.json', e.g., change it to 'config_train_LEARN-IMG.json' for training a LEARN-IMG model.

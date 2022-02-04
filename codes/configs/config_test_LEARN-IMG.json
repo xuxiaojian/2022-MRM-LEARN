@@ -19,7 +19,7 @@
         "train_subj_indexes": ["C01_V2", "C02_V2", "C03_V2", "C04_V2", "C06_V2", "C07_V2", "C11_V1",
                                "C12_V1", "C14_V1", "C15_V1", "C16_V1", "C18_V1", "C23_V1", "C26_V1"],
         "valid_subj_indexes":  ["C10_V3","C17_V1","C22_V1"],
-        "test_subj_indexes":  ["005-22239"],
+        "test_subj_indexes":  ["subj_exp"],
         "sample_batches": [14],
 
         "sampels_each_rate": {
