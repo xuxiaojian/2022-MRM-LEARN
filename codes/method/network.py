@@ -118,11 +118,11 @@ class Network:
 
         # read data
         dataset = self.config['setting']['dataset']
-        ipt_op, gt_op, ft_op, mask_op = test_dataset(batch_size=len(test_dataset))
+        ipt_op, _, _, _ = test_dataset(batch_size=len(test_dataset))
 
         # start loading the model
         with tf.Session() as sess:
-            ipt, gt = sess.run([ipt_op, gt_op])
+            ipt = sess.run([ipt_op])
             model.load_weights(model_path)
             pre = model.predict(ipt, batch_size=batch_size, verbose=1)
             if dataset == 'mri_3decho':

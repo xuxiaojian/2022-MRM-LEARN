@@ -52,13 +52,15 @@ class MRI3DEcho(TFDatasetBase):
             self.__ipt_files.append(rate_ipts)
             self.__ipt_names.append(rate_name)
 
-        self.__gt_files, self.__gt_names = mri_complex(basic_dict=basic_dict, data_config=gt_dict)
-        if self.mask_type != 'none':
-            self.__skullmask_files, _ = mri_complex(basic_dict=basic_dict, data_config=mask_dict)
-        else:
-            self.__skullmask_files = []
-            for subj in self.__gt_files:
-                self.__skullmask_files.append(np.ones(subj.shape + (1, )))
+        if mode != 'test':
+            self.__gt_files, self.__gt_names = mri_complex(basic_dict=basic_dict, data_config=gt_dict)
+            if self.mask_type != 'none':
+                self.__skullmask_files, _ = mri_complex(basic_dict=basic_dict, data_config=mask_dict)
+            else:
+                self.__skullmask_files = []
+                for subj in self.__gt_files:
+                    self.__skullmask_files.append(np.ones(subj.shape + (1, )))
+
 
         # [[[c1-s1-subj1, ..., c1-s1-subjn], [c1-s2], [c1-s3]],
         #  [[c2-s1], [c2-s2], [c2-s3]],
@@ -80,8 +82,13 @@ class MRI3DEcho(TFDatasetBase):
     def __getitem__(self, item):
         rate_idx, sample_idx, subj_idx, slice_idx = self.__indexes_map[item]
         ipt= self.__ipt_files[rate_idx][sample_idx][subj_idx][slice_idx] # 256*192*10
-        gt = self.__gt_files[subj_idx][slice_idx]  # 256*192*10
-        skull_mask = self.__skullmask_files[subj_idx][slice_idx]  # 256*192*10*1
+        
+        if self.mode != 'test':
+            gt = self.__gt_files[subj_idx][slice_idx]  # 256*192*10
+            skull_mask = self.__skullmask_files[subj_idx][slice_idx]  # 256*192*10*1
+        else:
+            gt = np.ones(ipt.shape) # 256*192*10
+            skull_mask = np.ones(ipt.shape + (1,)) # 256*192*10*1
 
         ipt = make_channels(ipt, inputType=self.inputType, outputType=self.outputType, new_dim=True)
         gt = make_channels(gt, inputType=self.inputType, outputType=self.outputType, new_dim=True)
@@ -92,7 +99,7 @@ class MRI3DEcho(TFDatasetBase):
     def getitem_names(self, item):
         rate_idx, sample_idx, subj_idx, slice_idx = self.__indexes_map[item]
         return self.__ipt_names[rate_idx][sample_idx][subj_idx],\
-               self.__gt_names[subj_idx]
+               self.__ipt_names[subj_idx]
 
 # get the dataset
 def mri_3decho(config, mode: str):

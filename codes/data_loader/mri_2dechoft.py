@@ -52,14 +52,16 @@ class MRI2DEchoFt(TFDatasetBase):
             self.__ipt_files.append(rate_ipts)
             self.__ipt_names.append(rate_name)
 
-        self.__gt_files, self.__gt_names = mri_complex(basic_dict=basic_dict, data_config=gt_dict)
-        self.__ft_files, self.__ft_names = mri_complex(basic_dict=basic_dict, data_config=ft_dict)
-        if self.mask_type != 'none':
-            self.__skullmask_files, _ = mri_complex(basic_dict=basic_dict, data_config=mask_dict)
-        else:
-            self.__skullmask_files = []
-            for subj in self.__gt_files:
-                self.__skullmask_files.append(np.ones(subj.shape[:3] + (1,))) # special
+        if mode != 'test':
+            self.__gt_files, self.__gt_names = mri_complex(basic_dict=basic_dict, data_config=gt_dict)
+            self.__ft_files, self.__ft_names = mri_complex(basic_dict=basic_dict, data_config=ft_dict)
+            if self.mask_type != 'none':
+                self.__skullmask_files, _ = mri_complex(basic_dict=basic_dict, data_config=mask_dict)
+            else:
+                self.__skullmask_files = []
+                for subj in self.__gt_files:
+                    self.__skullmask_files.append(np.ones(subj.shape[:3] + (1,))) # special
+
         # [[[c1-s1-subj1, ..., c1-s1-subjn], [c1-s2], [c1-s3]],
         #  [[c2-s1], [c2-s2], [c2-s3]],
         # ]
@@ -80,9 +82,15 @@ class MRI2DEchoFt(TFDatasetBase):
     def __getitem__(self, item):
         rate_idx, sample_idx, subj_idx, slice_idx = self.__indexes_map[item]
         ipt= self.__ipt_files[rate_idx][sample_idx][subj_idx][slice_idx] # 256*192*10
-        gt = self.__gt_files[subj_idx][slice_idx]  # 256*192*10
-        ft = self.__ft_files[subj_idx][slice_idx]  # 256*192*10
-        skull_mask = self.__skullmask_files[subj_idx][slice_idx] # 256*192*1
+
+        if self.mode != 'test':
+            gt = self.__gt_files[subj_idx][slice_idx]  # 256*192*10
+            ft = self.__ft_files[subj_idx][slice_idx]  # 256*192*10
+            skull_mask = self.__skullmask_files[subj_idx][slice_idx] # 256*192*1
+        else:
+            gt = np.ones(ipt.shape)
+            ft = np.ones(ipt.shape)
+            skull_mask = np.ones(ipt.shape)
 
         ipt = make_channels(ipt, inputType=self.inputType, outputType=self.outputType) #256*192*10
         gt = make_channels(gt, inputType=self.inputType, outputType=self.outputType) #256*192*10
@@ -93,7 +101,7 @@ class MRI2DEchoFt(TFDatasetBase):
     def getitem_names(self, item):
         rate_idx, sample_idx, subj_idx, slice_idx = self.__indexes_map[item]
         return self.__ipt_names[rate_idx][sample_idx][subj_idx],\
-               self.__gt_names[subj_idx]
+               self.__ipt_names[subj_idx]
 
 # get the dataset
 def mri_2dechoft(config, mode: str):
