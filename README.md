@@ -49,8 +49,7 @@
     - This is experimental motion-corrupted data. Folder contains mGRE data, F(t) function, mask and S0 and R2* (see table below for more details). Note that the mGRE data in this folder is identity to the one in **motion/subj_exp**. 
   - **truth/subj_sim**
     -  This is motion-free data. Folder contains mGRE data, F(t) function, mask and S0 and R2* (see table below for more details).
- 
- 
+
   |Files|Explaination|
   |---|:--:|
   |Braincalmask_New_X.mat| Brain mask ||
