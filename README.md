@@ -107,12 +107,17 @@ You can also train your own model using our codes. We here illustrate the proced
 
 ### Citation
 ```
-@misc{xu2021learningbased,
-      title={Learning-based Motion Artifact Removal Networks (LEARN) for Quantitative $R_2^\ast$ Mapping}, 
-      author={Xiaojian Xu and Satya V. V. N. Kothapalli and Jiaming Liu and Sayan Kahali and Weijie Gan and Dmitriy A. Yablonskiy and Ulugbek S. Kamilov},
-      year={2021},
-      eprint={2109.01622},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV}
+@article{https://doi.org/10.1002/mrm.29188,
+author = {Xu, Xiaojian and Kothapalli, Satya V. V. N. and Liu, Jiaming and Kahali, Sayan and Gan, Weijie and Yablonskiy, Dmitriy A. and Kamilov, Ulugbek S.},
+title = {Learning-based motion artifact removal networks for quantitative R2∗ mapping},
+journal = {Magnetic Resonance in Medicine},
+volume = {n/a},
+number = {n/a},
+pages = {},
+keywords = {convolutional neural networks, deep learning, gradient recalled echo, motion correction, MRI, R2∗ mapping, self-supervised deep learning},
+doi = {https://doi.org/10.1002/mrm.29188},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.29188},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/mrm.29188},
 }
+
 ```
