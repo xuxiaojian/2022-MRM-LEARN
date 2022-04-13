@@ -44,6 +44,7 @@ def norm_data(data, method=None, subjname='C01_V2', config=None):
     elif method == 'maxmin':
         data = data - np.amin(data)
         data = data / np.amax(data)
+        ref = None
     elif method == 'midcube0': # mean of the midddle slice of echo 0
         ref = loadmat(config['data_path'] + 'truth/midcube0.mat')['para_' + subjname]
         data = data/ref
@@ -63,6 +64,7 @@ def norm_data(data, method=None, subjname='C01_V2', config=None):
     else:
         print("error: wrong normalization in processing data.")
         exit(1)
+    print(f'The input mGRE data is scaled up by dividing {ref}')
     return data
 
 def make_3d_grid(img_tensor, num_column=5):
